@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NU_GAMER | Aternos Control</title>
+<style>
+:root{--bg:#090a0f;--panel:#131620;--panel2:#1a1e2a;--line:#2a3040;--red:#ff304b;--muted:#929bad;--green:#42d6a0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#38101c 0,transparent 36%),var(--bg);color:#f4f5f8;font:15px system-ui,Arial,sans-serif}
+main{max-width:1100px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{height:44px;width:44px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,#ff304b,#8b1028);font-weight:900}.brand h1{font-size:20px;margin:0;letter-spacing:1px}.brand small{color:var(--muted)}.tag{font-size:12px;padding:8px 12px;border-radius:30px;background:#25131a;border:1px solid #623040;color:#ff9aa8}
+.hero{padding:25px;border:1px solid #512332;border-radius:18px;background:linear-gradient(110deg,#29111a,#151720 70%);margin-bottom:16px}.eyebrow{font-size:11px;letter-spacing:2px;color:#ff7184;font-weight:800}.hero h2{font-size:clamp(25px,5vw,36px);margin:8px 0}.hero p{color:#b9bfcc;line-height:1.6;margin:0;max-width:720px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:15px 0}.stat,.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:23px;margin-top:6px}.muted{color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0}.tab,.btn{border:1px solid var(--line);background:var(--panel);color:#dce0e8;padding:10px 15px;border-radius:10px;cursor:pointer}.tab.active{background:#39141f;border-color:#a42b42;color:white}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel h3{font-size:16px;margin:0 0 15px}.field{margin:12px 0}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.field input{width:100%;padding:12px;border-radius:9px;border:1px solid #33394a;background:#0b0d13;color:white;outline:none}.field input:focus{border-color:var(--red)}.row{display:flex;gap:9px}.row>*{flex:1}.primary{background:var(--red);border-color:var(--red);color:white;font-weight:800}.notice{font-size:12px;line-height:1.55;color:#e8cc8e;background:#211b11;border:1px solid #5a4726;border-radius:10px;padding:12px;margin-top:13px}.successnote{font-size:12px;line-height:1.55;color:#9be6c7;background:#10231e;border:1px solid #245541;border-radius:10px;padding:12px;margin-top:12px}.hidden{display:none}.logbox{height:260px;overflow:auto;background:#080a0e;border:1px solid #282e3a;border-radius:10px;padding:12px;font:12px/1.8 ui-monospace,monospace}.log{border-bottom:1px solid #171b24;padding:3px 0;color:#c1c7d3}.log time{color:#778196;margin-right:8px}.log .warn{color:#edc06e}.log .ok{color:var(--green)}.botline{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--panel2);padding:14px;border-radius:11px}.badge{font-size:11px;color:#f0c66f;border:1px solid #66502b;background:#2b2113;padding:6px 9px;border-radius:30px}.footer{text-align:center;color:#727b8e;font-size:12px;padding:22px 0}
+@media(max-width:700px){main{padding:14px}.stats{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.row{flex-direction:column}}
+</style></head>
+<body><main>
+<header class="top"><div class="brand"><div class="logo">NU</div><div><h1>NU_GAMER</h1><small>ATERNOS JAVA SERVER DASHBOARD</small></div></div><span class="tag">ATER­NOS • CRACKED ON</span></header>
+<section class="hero"><div class="eyebrow">CONTROL CENTER</div><h2>Minecraft Server Panel</h2><p>Keep your server address, status checks and activity notes together. This publishable website is a frontend dashboard; it does not run a Minecraft bot or keep an Aternos server awake.</p></section>
+<section class="stats"><div class="stat"><small>SERVER CHECK</small><strong id="status">Not checked</strong></div><div class="stat"><small>BOT SERVICE</small><strong id="botstatus">Not connected</strong></div><div class="stat"><small>GAME VERSION</small><strong>1.21.11</strong></div></section>
+<nav class="tabs"><button class="tab active" data-page="home">Dashboard</button><button class="tab" data-page="bot">Bot tab</button><button class="tab" data-page="logs">Logs</button></nav>
+<section id="home" class="grid">
+<div class="panel"><h3>Server address</h3>
+<div class="field"><label>JAVA SERVER ADDRESS</label><input id="host" placeholder="yourserver.aternos.me"></div>
+<div class="field"><label>PORT</label><input id="port" type="number" placeholder="25565" value="25565"></div>
+<div class="field"><label>AUTHENTICATION</label><input value="Offline / Cracked mode (ON)" readonly></div>
+<div class="field"><label>VERSION</label><input value="Java 1.21.11" readonly></div>
+<div class="row"><button class="btn" id="save">Save on this device</button><button class="btn primary" id="check">Check address format</button></div>
+<div class="notice">Aternos servers may start and stop according to Aternos hosting rules. This dashboard does not send keep-alive traffic, auto-join bots, or bypass the server queue.</div>
+</div>
+<div class="panel"><h3>Connection overview</h3><div class="botline"><div><b>NU_GAMER service</b><div class="muted" style="font-size:12px">Backend not installed</div></div><span class="badge">FRONTEND ONLY</span></div>
+<div class="field"><label>SERVER TARGET</label><input id="target" readonly placeholder="Add your Aternos address"></div>
+<div class="field"><label>LAST ACTION</label><div class="muted" id="action">Dashboard opened</div></div>
+<div class="successnote">The address checker validates the format only. To display live Aternos status, add a permitted status-check API/backend later.</div>
+</div></section>
+<section id="bot" class="panel hidden"><h3>Bot tab</h3><div class="botline"><div><b>NU_GAMER_Bot</b><div class="muted" style="font-size:12px">No Minecraft bot process is running</div></div><span class="badge">NOT CONNECTED</span></div><p class="muted" style="line-height:1.6">A website file alone cannot host a Java bot. This tab is reserved for safe server diagnostics and bot-service information. Do not use a bot to keep an Aternos server online against its hosting rules.</p><button class="btn" id="botinfo">Show service information</button></section>
+<section id="logs" class="panel hidden"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h3>Dashboard logs</h3><button class="btn" id="clear">Clear</button></div><div class="logbox" id="logbox" aria-live="polite"></div></section>
+<div class="footer">NU_GAMER • Aternos dashboard • Version 1.0</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function log(msg,kind=''){let d=document.createElement('div'),t=document.createElement('time'),s=document.createElement('span');t.textContent='['+new Date().toLocaleTimeString()+']';s.textContent=msg;s.className=kind;d.className='log';d.append(t,s);$('logbox').append(d);$('logbox').scrollTop=$('logbox').scrollHeight}
+function update(){let h=$('host').value.trim(),p=$('port').value||'25565';$('target').value=h?(h+':'+p):''}
+$('host').addEventListener('input',update);$('port').addEventListener('input',update);
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));['home','bot','logs'].forEach(id=>$(id).classList.toggle('hidden',id!==b.dataset.page))});
+$('save').onclick=()=>{localStorage.setItem('nu_host',$('host').value.trim());localStorage.setItem('nu_port',$('port').value);update();$('action').textContent='Address saved in this browser';log('Server address saved locally.','ok')};
+$('check').onclick=()=>{let h=$('host').value.trim(),p=Number($('port').value);if(!h||!p||p<1||p>65535){$('status').textContent='Check details';$('status').style.color='#ff687d';log('Please enter a valid hostname and port.','warn');return}if(!/^[a-zA-Z0-9.-]+$/.test(h)){log('Hostname format looks invalid.','warn');return}$('status').textContent='Address looks valid';$('status').style.color='#42d6a0';$('action').textContent='Format check passed (not a live ping)';update();log('Address format looks valid: '+h+':'+p,'ok');log('No connection to the Minecraft server was attempted.','warn')};
+$('botinfo').onclick=()=>log('No bot backend is configured. This page is a static website dashboard.','warn');
+$('clear').onclick=()=>$('logbox').replaceChildren();
+$('host').value=localStorage.getItem('nu_host')||'';$('port').value=localStorage.getItem('nu_port')||'25565';update();
+log('NU_GAMER dashboard loaded.','ok');log('Aternos cracked mode: ON; Java version: 1.21.11.','ok');log('Frontend-only mode: no bot or live server connection.','warn');
+</script></body></html>
